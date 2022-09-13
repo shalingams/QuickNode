@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from "@apollo/client";
+import Client from "./client";
 
-function App() {
+const client = Client();
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="p-16 font-sans text-3xl">
+      <h1 className="font-bold">Trending Collections</h1>
+      <ApolloProvider client={client}>
+        {/* Collection goes here */}
+      </ApolloProvider>
     </div>
   );
 }
-
-export default App;
